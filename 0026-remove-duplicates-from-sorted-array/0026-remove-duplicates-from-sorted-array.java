@@ -1,17 +1,14 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        Stack<Integer> stack=new Stack<>();
-        for(int num:nums){
-            if(stack.isEmpty()||stack.peek()!=num){
-                stack.push(num);
+        int i=0;
+        if(nums.length==0) return 0;
+        for(int j=1;j<nums.length;j++){
+            if(nums[i]!=nums[j]){
+                i++;
+                nums[i]=nums[j];
+                
             }
         }
-        int index = 0;
-        for (int unique : stack) {
-            nums[index++] = unique;
-        }
-        return stack.size();
-        
-  
+        return i+1;
     }
 }
